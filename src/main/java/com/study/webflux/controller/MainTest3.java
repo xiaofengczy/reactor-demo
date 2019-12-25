@@ -30,7 +30,6 @@ public class MainTest3 {
 
   @PostMapping("/")
   public Mono<User> saveUserValidate(@Valid @RequestBody User user) {
-    validateParam(user);
     //新增和更新均为save方法，如果没id则新增，有id则修改
     user.setId(null);
     return userRespository.save(user);
