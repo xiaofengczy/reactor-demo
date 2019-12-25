@@ -8,6 +8,10 @@ package com.study.reactor;
  */
 public class Consumer {
 
+  public static void main(String[] args) {
 
 
+
+
+  }
 }

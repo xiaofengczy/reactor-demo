@@ -1,0 +1,38 @@
+spring:
+  application:
+    # 服务注册名
+    name: reactor-service
+  cloud:
+    consul:
+      config:
+        # 设置配置文件夹
+        prefix: config
+        # 设置配置文件夹位置
+        default-context: application
+        # 设置配置文件名称
+        data-key: data
+        # 设置配置文件显示样式，有properties和yaml两种格式
+        format: yaml
+        # 开启监听，动态刷新配置，默认每秒触发一次
+        watch:
+          enabled: true
+          # 修改动态刷新配置时间
+        #          delay: 2000
+        # 应用和profile之间的分割符，与spring.profiles.active配合使用
+        #        profile-separator: ,
+        enabled: true
+      # consul服务器地址
+      host: 148.70.30.245
+      # 默认端口号
+      port: 8500
+      # 是否注册，默认为true
+      discovery:
+        register: true
+        # 健康检查时间
+        health-check-timeout: 2m
+        enabled: true
+        heartbeat:
+          enabled: true
+        # 优先ip注册
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}:${spring.cloud.client.hostname}:${spring.application.instance_id:${server.port}}
