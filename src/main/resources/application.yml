@@ -1,0 +1,7 @@
+server:
+  port: 8888
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:root@148.70.30.245/study
